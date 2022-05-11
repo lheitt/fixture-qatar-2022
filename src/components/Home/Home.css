@@ -1,0 +1,34 @@
+.world-cup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.groups {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.group {
+    display: flex;
+    width: 30em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+tr,
+td,
+th {
+    border: 1px solid grey;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.teams-logos {
+    height: 3em;
+}

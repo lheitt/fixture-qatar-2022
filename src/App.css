@@ -2,34 +2,6 @@
     text-align: center;
 }
 
-.groups {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.group {
-    display: flex;
-    width: 30em;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-tr,
-td,
-th {
-    border: 1px solid grey;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-.teams-logos {
-    width: 3em;
-}
-
 .App-logo {
     height: 40vmin;
     pointer-events: none;
