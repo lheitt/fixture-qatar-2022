@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import apiKey from "../../utils/apiKey";
+import json from "./Squads.json";
 
 function Team() {
     useEffect(() => {
@@ -16,28 +17,36 @@ function Team() {
     const [team, setTeam] = useState(undefined);
 
     const getTeam = async () => {
-        const res = await axios.get(`https://v3.football.api-sports.io/players/squads?team=${teamId}`, {
-            headers: {
-                "x-apisports-key": apiKey,
-            },
-        });
+        if (teamId !== "26") {
+            const res = await axios.get(`https://v3.football.api-sports.io/players/squads?team=${teamId}`, {
+                headers: {
+                    "x-apisports-key": apiKey,
+                },
+            });
 
-        Array.isArray(res.data.errors) === true ? setTeam(res.data.response[0]) : setError(res.data.errors.requests);
+            Array.isArray(res.data.errors) === true
+                ? setTeam(res.data.response[0])
+                : setError(res.data.errors.requests);
+        } else {
+            setTeam(json.response[0]);
+        }
     };
 
     return (
         <div>
             {team ? (
                 <div>
-                    <h1>{team.team.name}</h1>
-                    <img src={team.team.logo} alt="team-logo" />
+                    <div className="team-logo">
+                        <h1>{team.team.name}</h1>
+                        <img src={team.team.logo} alt="team-logo" />
+                    </div>
 
-                    <ul>
+                    <ul className="squad">
                         {team.players.map((player, key) => {
                             return (
-                                <li key={key}>
+                                <li className="player" key={key}>
                                     <Link to={`/player/${player.id}`}>
-                                        <h3>{`${player.number} ${player.name}`}</h3>
+                                        <h3>{player.number ? `${player.number} ${player.name}` : player.name}</h3>
                                     </Link>
                                     <img className="player-photo" src={player.photo} alt="player-img" />
                                     <h4>{`${player.age} años - ${player.position}`}</h4>
