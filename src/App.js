@@ -1,8 +1,7 @@
-import "./App.css";
 import { Route, Routes } from "react-router";
-import Home from "./components/Home/Home";
-import Teams from "./components/Teams/Team";
-import Player from "./components/Player/Player";
+import Home from "./components/Home/Home.jsx";
+import Teams from "./components/Teams/Team.jsx";
+import Player from "./components/Player/Player.jsx";
 
 function App() {
     return (

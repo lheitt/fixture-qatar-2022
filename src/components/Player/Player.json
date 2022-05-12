@@ -1,0 +1,110 @@
+{
+    "get": "players",
+    "parameters": {
+        "id": "154",
+        "season": "2022"
+    },
+    "errors": [],
+    "results": 1,
+    "paging": {
+        "current": 1,
+        "total": 1
+    },
+    "response": [
+        {
+            "player": {
+                "id": 154,
+                "name": "L. Messi",
+                "firstname": "Lionel Andrés",
+                "lastname": "Messi Cuccittini",
+                "age": 35,
+                "birth": {
+                    "date": "1987-06-24",
+                    "place": "Rosario",
+                    "country": "Argentina"
+                },
+                "nationality": "Argentina",
+                "height": "170 cm",
+                "weight": "72 kg",
+                "injured": false,
+                "photo": "https://media.api-sports.io/football/players/154.png"
+            },
+            "statistics": [
+                {
+                    "team": {
+                        "id": 26,
+                        "name": "Argentina",
+                        "logo": "https://media.api-sports.io/football/teams/26.png"
+                    },
+                    "league": {
+                        "id": 34,
+                        "name": "World Cup - Qualification South America",
+                        "country": "World",
+                        "logo": "https://media.api-sports.io/football/leagues/34.png",
+                        "flag": null,
+                        "season": 2022
+                    },
+                    "games": {
+                        "appearences": 16,
+                        "lineups": 15,
+                        "minutes": 1364,
+                        "number": null,
+                        "position": "Attacker",
+                        "rating": "7.726666",
+                        "captain": false
+                    },
+                    "substitutes": {
+                        "in": 1,
+                        "out": 0,
+                        "bench": 1
+                    },
+                    "shots": {
+                        "total": 39,
+                        "on": 23
+                    },
+                    "goals": {
+                        "total": 7,
+                        "conceded": 0,
+                        "assists": null,
+                        "saves": null
+                    },
+                    "passes": {
+                        "total": 829,
+                        "key": 31,
+                        "accuracy": 47
+                    },
+                    "tackles": {
+                        "total": 11,
+                        "blocks": null,
+                        "interceptions": 4
+                    },
+                    "duels": {
+                        "total": 201,
+                        "won": 113
+                    },
+                    "dribbles": {
+                        "attempts": 99,
+                        "success": 59,
+                        "past": null
+                    },
+                    "fouls": {
+                        "drawn": 37,
+                        "committed": 8
+                    },
+                    "cards": {
+                        "yellow": 0,
+                        "yellowred": 0,
+                        "red": 0
+                    },
+                    "penalty": {
+                        "won": null,
+                        "commited": null,
+                        "scored": 2,
+                        "missed": 0,
+                        "saved": null
+                    }
+                }
+            ]
+        }
+    ]
+}

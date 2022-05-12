@@ -3,6 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import apiKey from "../../utils/apiKey";
+import json from './Standings.json';
+
 
 function Home() {
     useEffect(() => {
@@ -13,15 +15,17 @@ function Home() {
     const [standing, setStanding] = useState(undefined);
 
     const getStandings = async () => {
-        const res = await axios.get("https://v3.football.api-sports.io/standings?league=1&season=2022", {
-            headers: {
-                "x-apisports-key": apiKey,
-            },
-        });
+        // const res = await axios.get("https://v3.football.api-sports.io/standings?league=1&season=2022", {
+        //     headers: {
+        //         "x-apisports-key": apiKey,
+        //     },
+        // });
 
-        Array.isArray(res.data.errors) === true
-            ? setStanding(res.data.response[0])
-            : setError(res.data.errors.requests);
+        // Array.isArray(res.data.errors) === true
+        //     ? setStanding(res.data.response[0])
+        //     : setError(res.data.errors.requests);
+        
+        setStanding(json.response[0])
     };
 
     return (
