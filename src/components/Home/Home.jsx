@@ -1,9 +1,9 @@
-import "./Home.css";
+import "../../scss/Home.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import apiKey from "../../utils/apiKey";
-import json from './Standings.json';
+import json from '../../json/Standings.json';
 
 
 function Home() {

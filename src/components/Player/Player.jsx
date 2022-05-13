@@ -1,9 +1,9 @@
-import "./Player.css";
+import "../../scss/Player.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import apiKey from "../../utils/apiKey";
-import json from "./Player.json";
+import json from "../../json/Player.json";
 
 function Player() {
     useEffect(() => {

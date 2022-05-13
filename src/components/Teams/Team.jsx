@@ -1,9 +1,9 @@
-import "./Team.css";
+import "../../scss/Team.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import apiKey from "../../utils/apiKey";
-import json from "./Squads.json";
+import json from "../../json/Squads.json";
 
 function Team() {
     useEffect(() => {
