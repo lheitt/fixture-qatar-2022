@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import apiKey from "../../utils/apiKey";
 import json from "../../json/Squads.json";
 
-function Team() {
+const Team = () => {
     useEffect(() => {
         getTeam();
 
