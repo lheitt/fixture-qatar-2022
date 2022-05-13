@@ -3,10 +3,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import apiKey from "../../utils/apiKey";
-import json from '../../json/Standings.json';
+import json from "../../json/Standings.json";
 
-
-function Home() {
+const Home = () => {
     useEffect(() => {
         getStandings();
     }, []);
@@ -24,8 +23,8 @@ function Home() {
         // Array.isArray(res.data.errors) === true
         //     ? setStanding(res.data.response[0])
         //     : setError(res.data.errors.requests);
-        
-        setStanding(json.response[0])
+
+        setStanding(json.response[0]);
     };
 
     return (
@@ -33,7 +32,6 @@ function Home() {
             {standing ? (
                 <>
                     <div className="world-cup-container">
-                        <h1>{standing.league.name}</h1>
                         <img src={standing.league.logo} alt="world-cup-logo" />
                     </div>
                     <hr />
@@ -41,8 +39,8 @@ function Home() {
                         {standing.league.standings.map((group, gkey) => {
                             return (
                                 <div className="group" key={gkey}>
-                                    <h2>{group[0].group}</h2>
-                                    <table>
+                                    <h2>{"Grupo " + group[0].group[6]}</h2>
+                                    <table className="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Equipo</th>
@@ -60,14 +58,24 @@ function Home() {
                                         {group.map((team, tkey) => {
                                             return (
                                                 <tbody key={tkey}>
-                                                    <tr>
-                                                        <td>
-                                                            <img
-                                                                className="teams-logos"
-                                                                src={team.team.logo}
-                                                                alt={"team-logo"}
-                                                            />{" "}
-                                                            <Link to={`/team/${team.team.id}`}>{team.team.name}</Link>
+                                                    <tr
+                                                        className={
+                                                            team.rank === 1 || team.rank === 2
+                                                                ? "table-success"
+                                                                : "table-danger"
+                                                        }
+                                                    >
+                                                        <td className="d-flex justify-content-start align-items-center">
+                                                            <div className="teams-logo-container">
+                                                                <img
+                                                                    className="teams-logos"
+                                                                    src={team.team.logo}
+                                                                    alt={"team-logo"}
+                                                                />
+                                                            </div>
+                                                            <Link className="ps-2" to={`/team/${team.team.id}`}>
+                                                                {team.team.name}
+                                                            </Link>
                                                         </td>
                                                         <td>{team.points}</td>
                                                         <td>{team.all.played}</td>
@@ -94,6 +102,6 @@ function Home() {
             )}
         </div>
     );
-}
+};
 
 export default Home;

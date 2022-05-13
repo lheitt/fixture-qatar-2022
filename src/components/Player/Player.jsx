@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 import apiKey from "../../utils/apiKey";
 import json from "../../json/Player.json";
 
-function Player() {
+const Player = () => {
     useEffect(() => {
         getPlayer();
 

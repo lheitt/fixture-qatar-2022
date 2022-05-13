@@ -3,12 +3,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1em;
 }
 
 .groups {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 2em;
+    align-items: flex-start;
+    margin-bottom: 2em;
 }
 
 .group {
@@ -19,14 +23,16 @@
     flex-direction: column;
 }
 
-tr,
-td,
-th {
-    border: 1px solid grey;
-}
-
 table {
     border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+}
+
+.teams-logo-container {
+    width: 5em;
 }
 
 .teams-logos {
