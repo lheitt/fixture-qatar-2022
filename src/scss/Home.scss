@@ -17,6 +17,10 @@ hr {
     padding: 1em;
 }
 
+.world-cup-logo {
+    width: 15em;
+}
+
 .groups {
     display: flex;
     justify-content: center;
@@ -24,6 +28,7 @@ hr {
     gap: 2em;
     align-items: flex-start;
     margin-bottom: 2em;
+    width: 90vw;
 }
 
 .group {

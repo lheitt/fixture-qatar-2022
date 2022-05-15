@@ -43,12 +43,12 @@ const Player = () => {
             {player ? (
                 <div className="player-container">
                     <div className="player-name">
-                        <h1>{`${player.player.firstname} ${player.player.lastname}`}</h1>
-                        <img src={player.player.photo} alt="player-img" />
-                        <hr />
+                        <h1 className="fw-bold">{`${player.player.firstname} ${player.player.lastname}`}</h1>
+                        <img className="player-img" src={player.player.photo} alt="player-img" />
                     </div>
 
                     <div className="player-info">
+                        <hr />
                         <h4>Edad: {player.player.age} años</h4>
                         <h4>Fecha de Nacimiento: {player.player.birth.date}</h4>
                         <h4>
@@ -65,8 +65,8 @@ const Player = () => {
                         <hr />
                     </div>
 
-                    <div className="player-statistics">
-                        <h3>Estadísticas en {player.statistics[0].league.name}</h3>
+                    <h3 className="mt-3 fw-bold">Estadísticas en {player.statistics[0].league.name}</h3>
+                    <div className="player-statistics mt-2">
                         <h4>Partidos jugados: {player.statistics[0].games.appearences || 0}</h4>
                         <h4>Minutos jugados: {player.statistics[0].games.minutes || 0}</h4>
                         <h4>Tiros al arco: {player.statistics[0].shots.on || 0}</h4>

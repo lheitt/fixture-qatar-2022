@@ -38,25 +38,46 @@ const Team = () => {
         <div>
             {team ? (
                 <div className="team-container">
-                    <div className="team-logo">
-                        <h1>{teamNames.hasOwnProperty(team.team.name) ? teamNames[team.team.name] : team.team.name}</h1>
-                        <img src={team.team.logo} alt="team-logo" />
+                    <div className="team-logo-container">
+                        <h1 className="fw-bold">{teamNames.hasOwnProperty(team.team.name) ? teamNames[team.team.name] : team.team.name}</h1>
+                        <img className="team-logo" src={team.team.logo} alt="team-logo" />
                     </div>
                     <hr />
 
-                    <ul className="squad">
+                    <div className="squad">
                         {team.players.map((player, key) => {
                             return (
-                                <li className="player" key={key}>
+                                <div
+                                    className={`player ${
+                                        player.position === "Goalkeeper"
+                                            ? "border-danger"
+                                            : player.position === "Defender"
+                                            ? "border-warning"
+                                            : player.position === "Midfielder"
+                                            ? "border-success"
+                                            : player.position === "Attacker"
+                                            ? "border-primary"
+                                            : ""
+                                    }`}
+                                    key={key}
+                                >
                                     <Link to={`/player/${player.id}`}>
-                                        <h3>{player.number ? `${player.number} ${player.name}` : player.name}</h3>
+                                        <h3 className="text-center fw-bold">
+                                            {player.number ? `${player.number} ${player.name}` : player.name}
+                                        </h3>
                                     </Link>
                                     <img className="player-photo" src={player.photo} alt="player-img" />
-                                    <h4>{`${player.age} años - ${playerPosition[player.position]}`}</h4>
-                                </li>
+                                    {player.age ? (
+                                        <h4 className="text-center">{`${player.age} años - ${
+                                            playerPosition[player.position]
+                                        }`}</h4>
+                                    ) : (
+                                        <h4 className="text-center">{`${playerPosition[player.position]}`}</h4>
+                                    )}
+                                </div>
                             );
                         })}
-                    </ul>
+                    </div>
                 </div>
             ) : error ? (
                 <h2 className="team-container">{error}</h2>

@@ -5,11 +5,15 @@
     margin: 2em;
 }
 
-.team-logo {
+.team-logo-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.team-logo {
+    width: 10em;
 }
 
 .squad {
@@ -24,11 +28,20 @@
 .player {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    border: 0.15em solid;
+    width: 15em;
+    height: 20em;
+    padding: 1em;
+    border-radius: 1em;
 }
 
 .player-photo {
     height: 8em;
+    outline: 0.2em silver solid;
+    outline-offset: -3px;
+    border-radius: 50%;
 }
