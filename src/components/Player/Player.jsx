@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import apiKey from "../../utils/apiKey";
 import json from "../../json/Player.json";
+import teamNames from "../../json/TeamNames.json";
+import playerPosition from "../../json/PlayerPosition.json";
 
 const Player = () => {
     useEffect(() => {
@@ -24,8 +26,12 @@ const Player = () => {
                 },
             });
 
-            Array.isArray(res.data.errors) === true
+            console.log(res.data);
+
+            Array.isArray(res.data.errors) === true && res.data.response.length !== 0
                 ? setPlayer(res.data.response[0])
+                : res.data.response.length === 0
+                ? setError("No hay información acerca del jugador elegido")
                 : setError(res.data.errors.requests);
         } else {
             setPlayer(json.response[0]);
@@ -43,12 +49,19 @@ const Player = () => {
                     </div>
 
                     <div className="player-info">
-                        <h4>Edad: {player.player.age}</h4>
+                        <h4>Edad: {player.player.age} años</h4>
                         <h4>Fecha de Nacimiento: {player.player.birth.date}</h4>
-                        <h4>Lugar de Nacimiento: {`${player.player.birth.place}, ${player.player.birth.country}`}</h4>
+                        <h4>
+                            Lugar de Nacimiento:{" "}
+                            {`${player.player.birth.place}, ${
+                                teamNames.hasOwnProperty(player.player.birth.country)
+                                    ? teamNames[player.player.birth.country]
+                                    : player.player.birth.country
+                            }`}
+                        </h4>
                         <h4>Altura: {player.player.height}</h4>
                         <h4>Peso: {player.player.weight}</h4>
-                        <h4>Posición: {player.statistics[0].games.position}</h4>
+                        <h4>Posición: {playerPosition[player.statistics[0].games.position]}</h4>
                         <hr />
                     </div>
 
@@ -75,12 +88,12 @@ const Player = () => {
                     </div>
                 </div>
             ) : error ? (
-                <h2>{error}</h2>
+                <h2 className="player-container">{error}</h2>
             ) : (
-                <h1>Cargando...</h1>
+                <h1 className="player-container">Cargando...</h1>
             )}
         </div>
     );
-}
+};
 
 export default Player;
