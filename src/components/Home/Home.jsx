@@ -49,7 +49,7 @@ const Home = () => {
             {standing ? (
                 <>
                     <div className="world-cup-container">
-                        <img src={standing.league.logo} alt="world-cup-logo" />
+                        <img className="world-cup-logo" src={standing.league.logo} alt="world-cup-logo" />
                     </div>
                     <hr />
                     <div className="groups">
@@ -60,7 +60,7 @@ const Home = () => {
                                     <table className="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Equipo</th>
+                                                <th className="text-start ps-3">Equipo</th>
                                                 <th>PTS</th>
                                                 <th>PJ</th>
                                                 <th>PG</th>
@@ -82,7 +82,7 @@ const Home = () => {
                                                                 : "table-danger"
                                                         }
                                                     >
-                                                        <td className="d-flex justify-content-start align-items-center">
+                                                        <td className="d-flex justify-content-start align-items-center flex-wrap align-content-center">
                                                             <div className="teams-logo-container">
                                                                 <img
                                                                     className="teams-logos"
