@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import apiKey from "../../utils/apiKey";
 import json from "../../json/Squads.json";
+import teamNames from "../../json/TeamNames.json";
+import playerPosition from "../../json/PlayerPosition.json";
 
 const Team = () => {
     useEffect(() => {
@@ -35,11 +37,12 @@ const Team = () => {
     return (
         <div>
             {team ? (
-                <div>
+                <div className="team-container">
                     <div className="team-logo">
-                        <h1>{team.team.name}</h1>
+                        <h1>{teamNames.hasOwnProperty(team.team.name) ? teamNames[team.team.name] : team.team.name}</h1>
                         <img src={team.team.logo} alt="team-logo" />
                     </div>
+                    <hr />
 
                     <ul className="squad">
                         {team.players.map((player, key) => {
@@ -49,19 +52,19 @@ const Team = () => {
                                         <h3>{player.number ? `${player.number} ${player.name}` : player.name}</h3>
                                     </Link>
                                     <img className="player-photo" src={player.photo} alt="player-img" />
-                                    <h4>{`${player.age} años - ${player.position}`}</h4>
+                                    <h4>{`${player.age} años - ${playerPosition[player.position]}`}</h4>
                                 </li>
                             );
                         })}
                     </ul>
                 </div>
             ) : error ? (
-                <h2>{error}</h2>
+                <h2 className="team-container">{error}</h2>
             ) : (
-                <h1>Cargando...</h1>
+                <h1 className="team-container">Cargando...</h1>
             )}
         </div>
     );
-}
+};
 
 export default Team;

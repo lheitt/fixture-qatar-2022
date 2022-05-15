@@ -1,3 +1,14 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em;
+}
+
+hr {
+    width: 100%;
+}
+
 .world-cup-container {
     display: flex;
     flex-direction: column;
@@ -17,7 +28,7 @@
 
 .group {
     display: flex;
-    width: 30em;
+    width: 35em;
     justify-content: center;
     align-items: center;
     flex-direction: column;

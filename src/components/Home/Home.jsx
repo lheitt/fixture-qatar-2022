@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import apiKey from "../../utils/apiKey";
 import json from "../../json/Standings.json";
+import teamNames from "../../json/TeamNames.json";
 
 const Home = () => {
     useEffect(() => {
@@ -20,15 +21,31 @@ const Home = () => {
         //     },
         // });
 
-        // Array.isArray(res.data.errors) === true
-        //     ? setStanding(res.data.response[0])
-        //     : setError(res.data.errors.requests);
+        // if (Array.isArray(res.data.errors) === true) {
+        //     res.data.response[0].league.standings.forEach((group) => {
+        //         group.sort((a, b) => {
+        //             if (a.rank > b.rank) return 1;
+        //             return -1;
+        //         });
+        //     });
+        //     setStanding(res.data.response[0]);
+        // } else {
+        //     setError(res.data.errors.requests);
+        // }
 
-        setStanding(json.response[0]);
+        let res = json.response[0];
+        res.league.standings.forEach((group) => {
+            group.sort((a, b) => {
+                if (a.rank > b.rank) return 1;
+                return -1;
+            });
+        });
+
+        setStanding(res);
     };
 
     return (
-        <div>
+        <div className="home-container">
             {standing ? (
                 <>
                     <div className="world-cup-container">
@@ -74,7 +91,9 @@ const Home = () => {
                                                                 />
                                                             </div>
                                                             <Link className="ps-2" to={`/team/${team.team.id}`}>
-                                                                {team.team.name}
+                                                                {teamNames.hasOwnProperty(team.team.name)
+                                                                    ? teamNames[team.team.name]
+                                                                    : team.team.name}
                                                             </Link>
                                                         </td>
                                                         <td>{team.points}</td>

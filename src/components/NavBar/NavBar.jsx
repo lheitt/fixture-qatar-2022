@@ -15,9 +15,9 @@ const NavBar = () => {
                             <Nav.Link as={Link} to="/">
                                 Inicio
                             </Nav.Link>
-                            <Nav.Link href="#link">Calendario</Nav.Link>
-                            <Nav.Link href="#link">Sedes</Nav.Link>
-                            <Nav.Link href="#link">Estadisticas</Nav.Link>
+                            <Nav.Link as={Link} to="/calendar">Calendario</Nav.Link>
+                            <Nav.Link as={Link} to="/stadiums">Sedes</Nav.Link>
+                            <Nav.Link as={Link} to="/statistics">Estadísticas</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

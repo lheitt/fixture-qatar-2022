@@ -22,7 +22,7 @@
                 "standings": [
                     [
                         {
-                            "rank": 1,
+                            "rank": 4,
                             "team": {
                                 "id": 1118,
                                 "name": "Netherlands",
@@ -157,7 +157,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 4,
+                            "rank": 1,
                             "team": {
                                 "id": 1569,
                                 "name": "Qatar",
@@ -249,7 +249,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 2,
+                            "rank": 3,
                             "team": {
                                 "id": 2384,
                                 "name": "USA",
@@ -294,7 +294,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 3,
+                            "rank": 2,
                             "team": {
                                 "id": 22,
                                 "name": "Iran",
@@ -337,11 +337,56 @@
                                 }
                             },
                             "update": "2022-04-20T00:00:00+00:00"
+                        },
+                        {
+                            "rank": 4,
+                            "team": {
+                                "id": null,
+                                "name": "Gales / Escocia / Ucrania",
+                                "logo": "https://img.icons8.com/flat-round/344/question-mark.png"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "group": "Group B",
+                            "form": null,
+                            "status": "same",
+                            "description": null,
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "home": {
+                                "played": null,
+                                "win": null,
+                                "draw": null,
+                                "lose": null,
+                                "goals": {
+                                    "for": null,
+                                    "against": null
+                                }
+                            },
+                            "away": {
+                                "played": null,
+                                "win": null,
+                                "draw": null,
+                                "lose": null,
+                                "goals": {
+                                    "for": null,
+                                    "against": null
+                                }
+                            },
+                            "update": "2022-04-20T00:00:00+00:00"
                         }
                     ],
                     [
                         {
-                            "rank": 1,
+                            "rank": 4,
                             "team": {
                                 "id": 24,
                                 "name": "Poland",
@@ -386,7 +431,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 2,
+                            "rank": 1,
                             "team": {
                                 "id": 26,
                                 "name": "Argentina",
@@ -476,7 +521,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 4,
+                            "rank": 2,
                             "team": {
                                 "id": 23,
                                 "name": "Saudi Arabia",
@@ -568,7 +613,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 2,
+                            "rank": 3,
                             "team": {
                                 "id": 21,
                                 "name": "Denmark",
@@ -613,7 +658,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 3,
+                            "rank": 4,
                             "team": {
                                 "id": 28,
                                 "name": "Tunisia",
@@ -656,11 +701,56 @@
                                 }
                             },
                             "update": "2022-04-20T00:00:00+00:00"
+                        },
+                        {
+                            "rank": 2,
+                            "team": {
+                                "id": null,
+                                "name": "Perú / EAU / Austria",
+                                "logo": "https://img.icons8.com/flat-round/344/question-mark.png"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "group": "Group D",
+                            "form": null,
+                            "status": "same",
+                            "description": null,
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "home": {
+                                "played": null,
+                                "win": null,
+                                "draw": null,
+                                "lose": null,
+                                "goals": {
+                                    "for": null,
+                                    "against": null
+                                }
+                            },
+                            "away": {
+                                "played": null,
+                                "win": null,
+                                "draw": null,
+                                "lose": null,
+                                "goals": {
+                                    "for": null,
+                                    "against": null
+                                }
+                            },
+                            "update": "2022-04-20T00:00:00+00:00"
                         }
                     ],
                     [
                         {
-                            "rank": 1,
+                            "rank": 3,
                             "team": {
                                 "id": 25,
                                 "name": "Germany",
@@ -705,7 +795,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 2,
+                            "rank": 1,
                             "team": {
                                 "id": 9,
                                 "name": "Spain",
@@ -750,7 +840,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 3,
+                            "rank": 4,
                             "team": {
                                 "id": 12,
                                 "name": "Japan",
@@ -793,11 +883,56 @@
                                 }
                             },
                             "update": "2022-04-20T00:00:00+00:00"
+                        },
+                        {
+                            "rank": 2,
+                            "team": {
+                                "id": null,
+                                "name": "Costa Rica / N.Zelanda",
+                                "logo": "https://img.icons8.com/flat-round/344/question-mark.png"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "group": "Group E",
+                            "form": null,
+                            "status": "same",
+                            "description": null,
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "home": {
+                                "played": null,
+                                "win": null,
+                                "draw": null,
+                                "lose": null,
+                                "goals": {
+                                    "for": null,
+                                    "against": null
+                                }
+                            },
+                            "away": {
+                                "played": null,
+                                "win": null,
+                                "draw": null,
+                                "lose": null,
+                                "goals": {
+                                    "for": null,
+                                    "against": null
+                                }
+                            },
+                            "update": "2022-04-20T00:00:00+00:00"
                         }
                     ],
                     [
                         {
-                            "rank": 1,
+                            "rank": 4,
                             "team": {
                                 "id": 3,
                                 "name": "Croatia",
@@ -842,7 +977,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 2,
+                            "rank": 1,
                             "team": {
                                 "id": 1,
                                 "name": "Belgium",
@@ -887,7 +1022,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 3,
+                            "rank": 2,
                             "team": {
                                 "id": 5529,
                                 "name": "Canada",
@@ -932,7 +1067,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 4,
+                            "rank": 3,
                             "team": {
                                 "id": 31,
                                 "name": "Morocco",
@@ -979,7 +1114,7 @@
                     ],
                     [
                         {
-                            "rank": 1,
+                            "rank": 3,
                             "team": {
                                 "id": 15,
                                 "name": "Switzerland",
@@ -1069,7 +1204,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 3,
+                            "rank": 1,
                             "team": {
                                 "id": 6,
                                 "name": "Brazil",
@@ -1206,7 +1341,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 2,
+                            "rank": 3,
                             "team": {
                                 "id": 7,
                                 "name": "Uruguay",
@@ -1251,7 +1386,7 @@
                             "update": "2022-04-20T00:00:00+00:00"
                         },
                         {
-                            "rank": 3,
+                            "rank": 2,
                             "team": {
                                 "id": 1504,
                                 "name": "Ghana",
