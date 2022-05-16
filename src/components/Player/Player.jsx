@@ -1,47 +1,33 @@
 import "../../scss/Player.scss";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getPlayer } from "../../redux/actions";
+import { useEffect } from "react";
 import { useParams } from "react-router";
-import json from "../../json/Player.json";
 import teamNames from "../../json/TeamNames.json";
 import playerPosition from "../../json/PlayerPosition.json";
 
 const Player = () => {
-    useEffect(() => {
-        getPlayer();
-
-        // eslint-disable-next-line
-    }, []);
-
     const { playerId } = useParams();
-    const [error, setError] = useState("");
-    const [player, setPlayer] = useState(undefined);
+    const dispatch = useDispatch();
+    const player = useSelector((state) => state.player);
 
-    const getPlayer = async () => {
-        if (playerId !== "154") {
-            const res = await axios.get(`https://v3.football.api-sports.io/players?id=${playerId}&season=2022`, {
-                headers: {
-                    "x-apisports-key": process.env.REACT_APP_API_KEY_V1,
-                },
-            });
+    useEffect(() => {
+        dispatch(getPlayer(playerId));
 
-            console.log(res.data);
-
-            Array.isArray(res.data.errors) === true && res.data.response.length !== 0
-                ? setPlayer(res.data.response[0])
-                : res.data.response.length === 0
-                ? setError("No hay información acerca del jugador elegido")
-                : res.data.errors.requests
-                ? setError("Se excedió el límite de llamados a la API, intente nuevamente mañana")
-                : setError("Ocurrió un error, intente nuevamente");
-        } else {
-            setPlayer(json.response[0]);
-        }
-    };
+        // return function cleanup() {
+        //     dispatch(getPlayer("reset"));
+        // };
+    }, [dispatch, playerId]);
 
     return (
         <div>
-            {player ? (
+            {player?.noInfo ? (
+                <h2 className="player-container">{player.noInfo}</h2>
+            ) : player?.request ? (
+                <h2 className="player-container">{player.request}</h2>
+            ) : player?.error ? (
+                <h2 className="player-container">{player.error}</h2>
+            ) : player?.player ? (
                 <div className="player-container">
                     <div className="player-name">
                         <h1 className="fw-bold">{`${player.player.firstname} ${player.player.lastname}`}</h1>
@@ -88,8 +74,6 @@ const Player = () => {
                         <h4>Penales cometidos: {player.statistics[0].penalty.commited || 0}</h4>
                     </div>
                 </div>
-            ) : error ? (
-                <h2 className="player-container">{error}</h2>
             ) : (
                 <h1 className="player-container">Cargando...</h1>
             )}
