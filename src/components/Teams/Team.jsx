@@ -2,7 +2,6 @@ import "../../scss/Team.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import apiKey from "../../utils/apiKey";
 import json from "../../json/Squads.json";
 import teamNames from "../../json/TeamNames.json";
 import playerPosition from "../../json/PlayerPosition.json";
@@ -22,13 +21,15 @@ const Team = () => {
         if (teamId !== "26") {
             const res = await axios.get(`https://v3.football.api-sports.io/players/squads?team=${teamId}`, {
                 headers: {
-                    "x-apisports-key": apiKey,
+                    "x-apisports-key": process.env.REACT_APP_API_KEY_V1,
                 },
             });
 
             Array.isArray(res.data.errors) === true
                 ? setTeam(res.data.response[0])
-                : setError(res.data.errors.requests);
+                : res.data.errors.requests
+                ? setError("Se excedió el límite de llamados a la API, intente nuevamente mañana")
+                : setError("Ocurrió un error, intente nuevamente");
         } else {
             setTeam(json.response[0]);
         }
@@ -39,7 +40,9 @@ const Team = () => {
             {team ? (
                 <div className="team-container">
                     <div className="team-logo-container">
-                        <h1 className="fw-bold">{teamNames.hasOwnProperty(team.team.name) ? teamNames[team.team.name] : team.team.name}</h1>
+                        <h1 className="fw-bold">
+                            {teamNames.hasOwnProperty(team.team.name) ? teamNames[team.team.name] : team.team.name}
+                        </h1>
                         <img className="team-logo" src={team.team.logo} alt="team-logo" />
                     </div>
                     <hr />

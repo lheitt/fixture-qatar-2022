@@ -2,7 +2,6 @@ import "../../scss/Home.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import apiKey from "../../utils/apiKey";
 import json from "../../json/Standings.json";
 import teamNames from "../../json/TeamNames.json";
 
@@ -17,7 +16,7 @@ const Home = () => {
     const getStandings = async () => {
         // const res = await axios.get("https://v3.football.api-sports.io/standings?league=1&season=2022", {
         //     headers: {
-        //         "x-apisports-key": apiKey,
+        //         "x-apisports-key": process.env.REACT_APP_API_KEY_V1,
         //     },
         // });
 
@@ -30,7 +29,9 @@ const Home = () => {
         //     });
         //     setStanding(res.data.response[0]);
         // } else {
-        //     setError(res.data.errors.requests);
+        //     res.data.errors.requests
+        //         ? setError("Se excedió el límite de llamados a la API, intente nuevamente mañana")
+        //         : setError("Ocurrió un error, intente nuevamente");
         // }
 
         let res = json.response[0];

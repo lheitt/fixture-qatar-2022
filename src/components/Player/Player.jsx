@@ -2,7 +2,6 @@ import "../../scss/Player.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import apiKey from "../../utils/apiKey";
 import json from "../../json/Player.json";
 import teamNames from "../../json/TeamNames.json";
 import playerPosition from "../../json/PlayerPosition.json";
@@ -22,7 +21,7 @@ const Player = () => {
         if (playerId !== "154") {
             const res = await axios.get(`https://v3.football.api-sports.io/players?id=${playerId}&season=2022`, {
                 headers: {
-                    "x-apisports-key": apiKey,
+                    "x-apisports-key": process.env.REACT_APP_API_KEY_V1,
                 },
             });
 
@@ -32,7 +31,9 @@ const Player = () => {
                 ? setPlayer(res.data.response[0])
                 : res.data.response.length === 0
                 ? setError("No hay información acerca del jugador elegido")
-                : setError(res.data.errors.requests);
+                : res.data.errors.requests
+                ? setError("Se excedió el límite de llamados a la API, intente nuevamente mañana")
+                : setError("Ocurrió un error, intente nuevamente");
         } else {
             setPlayer(json.response[0]);
         }
