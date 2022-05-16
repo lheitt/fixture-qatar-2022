@@ -1,43 +1,31 @@
 import "../../scss/Team.scss";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTeam } from "../../redux/actions";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import json from "../../json/Squads.json";
 import teamNames from "../../json/TeamNames.json";
 import playerPosition from "../../json/PlayerPosition.json";
 
 const Team = () => {
-    useEffect(() => {
-        getTeam();
-
-        // eslint-disable-next-line
-    }, []);
-
     const { teamId } = useParams();
-    const [error, setError] = useState("");
-    const [team, setTeam] = useState(undefined);
+    const dispatch = useDispatch();
+    const team = useSelector((state) => state.team);
 
-    const getTeam = async () => {
-        if (teamId !== "26") {
-            const res = await axios.get(`https://v3.football.api-sports.io/players/squads?team=${teamId}`, {
-                headers: {
-                    "x-apisports-key": process.env.REACT_APP_API_KEY_V1,
-                },
-            });
+    useEffect(() => {
+        dispatch(getTeam(teamId));
 
-            Array.isArray(res.data.errors) === true
-                ? setTeam(res.data.response[0])
-                : res.data.errors.requests
-                ? setError("Se excedió el límite de llamados a la API, intente nuevamente mañana")
-                : setError("Ocurrió un error, intente nuevamente");
-        } else {
-            setTeam(json.response[0]);
-        }
-    };
+        // return function cleanup() {
+        //     dispatch(getTeam("reset"));
+        // };
+    }, [dispatch, teamId]);
 
     return (
         <div>
-            {team ? (
+            {team?.request ? (
+                <h2 className="team-container">{team.request}</h2>
+            ) : team?.error ? (
+                <h2 className="team-container">{team.error}</h2>
+            ) : team?.team ? (
                 <div className="team-container">
                     <div className="team-logo-container">
                         <h1 className="fw-bold">
@@ -82,8 +70,6 @@ const Team = () => {
                         })}
                     </div>
                 </div>
-            ) : error ? (
-                <h2 className="team-container">{error}</h2>
             ) : (
                 <h1 className="team-container">Cargando...</h1>
             )}
