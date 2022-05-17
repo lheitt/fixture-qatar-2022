@@ -9,22 +9,21 @@ import playerPosition from "../../json/PlayerPosition.json";
 const Team = () => {
     const { teamId } = useParams();
     const dispatch = useDispatch();
-    const team = useSelector((state) => state.team);
+    const team = useSelector((state) => state.teams[teamId]);
+    const error = useSelector((state) => state.error);
 
     useEffect(() => {
-        dispatch(getTeam(teamId));
-
-        // return function cleanup() {
-        //     dispatch(getTeam("reset"));
-        // };
-    }, [dispatch, teamId]);
+        if (!team) dispatch(getTeam(teamId));
+    }, [dispatch, teamId, team]);
 
     return (
         <div>
-            {team?.request ? (
-                <h2 className="team-container">{team.request}</h2>
-            ) : team?.error ? (
-                <h2 className="team-container">{team.error}</h2>
+            {error.request ? (
+                <h2 className="team-container">{error.request}</h2>
+            ) : error.rateLimit ? (
+                <h2 className="team-container">{error.rateLimit}</h2>
+            ) : error.error ? (
+                <h2 className="team-container">{error.error}</h2>
             ) : team?.team ? (
                 <div className="team-container">
                     <div className="team-logo-container">
