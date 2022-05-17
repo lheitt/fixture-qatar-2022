@@ -8,17 +8,20 @@ import teamNames from "../../json/TeamNames.json";
 const Home = () => {
     const dispatch = useDispatch();
     const standing = useSelector((state) => state.standings);
+    const error = useSelector((state) => state.error);
 
     useEffect(() => {
-        dispatch(getStandings());
-    }, [dispatch]);
+        if (!standing) dispatch(getStandings());
+    }, [dispatch, standing]);
 
     return (
         <div className="home-container">
-            {standing?.request ? (
-                <h2>{standing.request}</h2>
-            ) : standing?.error ? (
-                <h2>{standing.error}</h2>
+            {error.request ? (
+                <h2>{error.request}</h2>
+            ) : error.rateLimit ? (
+                <h2>{error.rateLimit}</h2>
+            ) : error.error ? (
+                <h2>{error.error}</h2>
             ) : standing?.league ? (
                 <>
                     <div className="world-cup-container">

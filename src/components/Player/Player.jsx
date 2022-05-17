@@ -9,24 +9,23 @@ import playerPosition from "../../json/PlayerPosition.json";
 const Player = () => {
     const { playerId } = useParams();
     const dispatch = useDispatch();
-    const player = useSelector((state) => state.player);
+    const player = useSelector((state) => state.players[playerId]);
+    const error = useSelector((state) => state.error);
 
     useEffect(() => {
-        dispatch(getPlayer(playerId));
-
-        // return function cleanup() {
-        //     dispatch(getPlayer("reset"));
-        // };
-    }, [dispatch, playerId]);
+        if (!player) dispatch(getPlayer(playerId));
+    }, [dispatch, playerId, player]);
 
     return (
         <div>
             {player?.noInfo ? (
                 <h2 className="player-container">{player.noInfo}</h2>
-            ) : player?.request ? (
-                <h2 className="player-container">{player.request}</h2>
-            ) : player?.error ? (
-                <h2 className="player-container">{player.error}</h2>
+            ) : error.request ? (
+                <h2 className="player-container">{error.request}</h2>
+            ) : error.rateLimit ? (
+                <h2 className="player-container">{error.rateLimit}</h2>
+            ) : error.error ? (
+                <h2 className="player-container">{error.error}</h2>
             ) : player?.player ? (
                 <div className="player-container">
                     <div className="player-name">
