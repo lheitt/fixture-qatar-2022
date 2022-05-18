@@ -1,9 +1,10 @@
-import { GET_STANDINGS, GET_TEAM, GET_PLAYER } from "../actions";
+import { GET_STANDINGS, GET_TEAM, GET_PLAYER, GET_COACH } from "../actions";
 
 const initialState = {
     standings: undefined,
-    teams: [],
-    players: [],
+    teams: {},
+    coachs: {},
+    players: {},
     error: {},
 };
 
@@ -30,7 +31,7 @@ const reducer = (state = initialState, action) => {
                         : action.payload.errors.rateLimit
                         ? {
                               rateLimit:
-                                  "Se realizó muchos llamados a la API en poco tiempo, intente nuavamente en 1 minuto",
+                                  "Se realizó muchos llamados a la API en poco tiempo, intente nuevamente en 1 minuto",
                           }
                         : { error: "Ocurrió un error, intente recargar la página" },
                 };
@@ -53,10 +54,29 @@ const reducer = (state = initialState, action) => {
                         : action.payload.errors.rateLimit
                         ? {
                               rateLimit:
-                                  "Se realizó muchos llamados a la API en poco tiempo, intente nuavamente en 1 minuto",
+                                  "Se realizó muchos llamados a la API en poco tiempo, intente nuevamente en 1 minuto",
                           }
                         : { error: "Ocurrió un error, intente recargar la página" },
                 };
+            }
+
+        case GET_COACH:
+            if (Array.isArray(action.payload.errors) === true) {
+                return {
+                    ...state,
+                    coachs: {
+                        ...state.coachs,
+                        [action.teamId]: action.payload.response[0],
+                    },
+                };
+            } else {
+                return {
+                    ...state,
+                    coachs: {
+                        ...state.coachs,
+                        [action.teamId]: undefined
+                    }
+                }
             }
 
         case GET_PLAYER:
@@ -86,7 +106,7 @@ const reducer = (state = initialState, action) => {
                         : action.payload.errors.rateLimit
                         ? {
                               rateLimit:
-                                  "Se realizó muchos llamados a la API en poco tiempo, intente nuavamente en 1 minuto",
+                                  "Se realizó muchos llamados a la API en poco tiempo, intente nuevamente en 1 minuto",
                           }
                         : { error: "Ocurrió un error, intente recargar la página" },
                 };

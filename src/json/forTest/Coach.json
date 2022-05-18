@@ -1,0 +1,137 @@
+{
+    "get": "coachs",
+    "parameters": {
+        "team": "26"
+    },
+    "errors": [],
+    "results": 3,
+    "paging": {
+        "current": 1,
+        "total": 1
+    },
+    "response": [
+        {
+            "id": 326,
+            "name": "L. Scaloni",
+            "firstname": "Lionel Sebastián",
+            "lastname": "Scaloni",
+            "age": 44,
+            "birth": {
+                "date": "1978-05-16",
+                "place": "Rosario",
+                "country": "Argentina"
+            },
+            "nationality": "Argentina",
+            "height": "182 cm",
+            "weight": "80 kg",
+            "photo": "https://media.api-sports.io/football/coachs/326.png",
+            "team": {
+                "id": 26,
+                "name": "Argentina",
+                "logo": "https://media.api-sports.io/football/teams/26.png"
+            },
+            "career": [
+                {
+                    "team": {
+                        "id": 26,
+                        "name": "Argentina",
+                        "logo": "https://media.api-sports.io/football/teams/26.png"
+                    },
+                    "start": "2018-08-01",
+                    "end": null
+                }
+            ]
+        },
+        {
+            "id": 10760,
+            "name": "J. Borrello",
+            "firstname": "José Carlos",
+            "lastname": "Borrello",
+            "age": 67,
+            "birth": {
+                "date": "1955-09-12",
+                "place": null,
+                "country": "Argentina"
+            },
+            "nationality": "Argentina",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/10760.png",
+            "team": {
+                "id": 26,
+                "name": "Argentina",
+                "logo": "https://media.api-sports.io/football/teams/26.png"
+            },
+            "career": [
+                {
+                    "team": {
+                        "id": 26,
+                        "name": "Argentina",
+                        "logo": "https://media.api-sports.io/football/teams/26.png"
+                    },
+                    "start": "2018-04-01",
+                    "end": "2021-07-01"
+                },
+                {
+                    "team": {
+                        "id": 12500,
+                        "name": "Argentina U17",
+                        "logo": "https://media.api-sports.io/football/teams/12500.png"
+                    },
+                    "start": "2018-02-01",
+                    "end": null
+                },
+                {
+                    "team": {
+                        "id": 10284,
+                        "name": "Argentina U20",
+                        "logo": "https://media.api-sports.io/football/teams/10284.png"
+                    },
+                    "start": "2012-08-01",
+                    "end": "2022-04-01"
+                },
+                {
+                    "team": {
+                        "id": 26,
+                        "name": "Argentina",
+                        "logo": "https://media.api-sports.io/football/teams/26.png"
+                    },
+                    "start": "2003-01-01",
+                    "end": "2011-12-01"
+                }
+            ]
+        },
+        {
+            "id": 14708,
+            "name": "F. Olazar",
+            "firstname": "Francisco",
+            "lastname": "Olazar",
+            "age": 137,
+            "birth": {
+                "date": "1885-07-10",
+                "place": "Quilmes",
+                "country": "Argentina"
+            },
+            "nationality": "Argentina",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/14708.png",
+            "team": {
+                "id": 26,
+                "name": "Argentina",
+                "logo": "https://media.api-sports.io/football/teams/26.png"
+            },
+            "career": [
+                {
+                    "team": {
+                        "id": 26,
+                        "name": "Argentina",
+                        "logo": "https://media.api-sports.io/football/teams/26.png"
+                    },
+                    "start": "1930-07-01",
+                    "end": "1930-07-01"
+                }
+            ]
+        }
+    ]
+}

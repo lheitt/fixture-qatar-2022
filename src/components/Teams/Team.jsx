@@ -1,6 +1,6 @@
 import "../../scss/Team.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getTeam } from "../../redux/actions";
+import { getCoach, getTeam } from "../../redux/actions";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import teamNames from "../../json/TeamNames.json";
@@ -10,10 +10,14 @@ const Team = () => {
     const { teamId } = useParams();
     const dispatch = useDispatch();
     const team = useSelector((state) => state.teams[teamId]);
+    const coach = useSelector((state) => state.coachs[teamId]);
     const error = useSelector((state) => state.error);
 
     useEffect(() => {
-        if (!team) dispatch(getTeam(teamId));
+        if (!team) {
+            dispatch(getTeam(teamId));
+            dispatch(getCoach(teamId));
+        }
     }, [dispatch, teamId, team]);
 
     return (
@@ -35,6 +39,13 @@ const Team = () => {
                     <hr />
 
                     <div className="squad">
+                        {coach && (
+                            <div className="player">
+                                <h3 className="text-center fw-bold">{coach.name}</h3>
+                                <img className="player-photo" src={coach.photo} alt="coach-img" />
+                                <h4 className="text-center">{coach.age ? `${coach.age} años - DT` : "DT"}</h4>
+                            </div>
+                        )}
                         {team.players.map((player, key) => {
                             return (
                                 <div

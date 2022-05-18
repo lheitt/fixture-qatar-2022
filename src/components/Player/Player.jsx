@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router";
 import teamNames from "../../json/TeamNames.json";
 import playerPosition from "../../json/PlayerPosition.json";
+import competitionName from "../../json/CompetitionNames.json";
 
 const Player = () => {
     const { playerId } = useParams();
@@ -51,7 +52,12 @@ const Player = () => {
                         <hr />
                     </div>
 
-                    <h3 className="mt-3 fw-bold">Estadísticas en {player.statistics[0].league.name}</h3>
+                    <h3 className="mt-3 fw-bold">
+                        Estadísticas en{" "}
+                        {competitionName.hasOwnProperty(player.statistics[0].league.name)
+                            ? competitionName[player.statistics[0].league.name]
+                            : player.statistics[0].league.name}
+                    </h3>
                     <div className="player-statistics mt-2">
                         <h4>Partidos jugados: {player.statistics[0].games.appearences || 0}</h4>
                         <h4>Minutos jugados: {player.statistics[0].games.minutes || 0}</h4>
