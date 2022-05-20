@@ -66,7 +66,7 @@ const Player = () => {
                         <h4>
                             Promedio de Gol:{" "}
                             {player.statistics[0].games.appearences && player.statistics[0].goals.total
-                                ? (player.statistics[0].games.appearences / player.statistics[0].goals.total).toPrecision(3)
+                                ? (player.statistics[0].goals.total / player.statistics[0].games.appearences).toPrecision(3)
                                 : 0}
                         </h4>
                         <h4>Pases: {player.statistics[0].passes.total || 0}</h4>
