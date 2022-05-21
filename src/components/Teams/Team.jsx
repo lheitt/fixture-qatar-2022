@@ -18,6 +18,10 @@ const Team = () => {
             dispatch(getTeam(teamId));
             dispatch(getCoach(teamId));
         }
+        team &&
+            (document.title = teamNames.hasOwnProperty(team.team.name)
+                ? teamNames[team.team.name] + " | Qatar 2022"
+                : team.team.name + " | Qatar 2022");
     }, [dispatch, teamId, team]);
 
     return (

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import teamNames from "../../json/TeamNames.json";
 
 const Home = () => {
+    document.title = "Inicio | Qatar 2022";
     const dispatch = useDispatch();
     const standing = useSelector((state) => state.standings);
     const error = useSelector((state) => state.error);

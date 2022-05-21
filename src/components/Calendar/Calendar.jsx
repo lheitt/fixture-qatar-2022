@@ -1,27 +1,19 @@
+import "../../scss/Calendar.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getFixtures } from "../../redux/actions";
+import { useEffect } from "react";
 import { Carousel } from "react-bootstrap";
-import jsonFixture from "../../json/forTest/Fixture.json";
+import teamNames from "../../json/TeamNames.json";
 
 const Calendar = () => {
-    let fixtureByDay = {
-        21: [],
-        22: [],
-        23: [],
-        24: [],
-        25: [],
-        26: [],
-        27: [],
-        28: [],
-        29: [],
-        30: [],
-        1: [],
-        2: [],
-    };
+    document.title = "Calendario | Qatar 2022";
+    const dispatch = useDispatch();
+    const calendar = useSelector((state) => state.fixtures);
+    const error = useSelector((state) => state.error);
 
-    jsonFixture.response.forEach((fixture) => {
-        fixtureByDay[new Date(fixture.fixture.date).getDate()].push(fixture);
-    });
-
-    console.log(fixtureByDay);
+    useEffect(() => {
+        if (!calendar) dispatch(getFixtures());
+    }, [dispatch, calendar]);
 
     const dateArg = (dateArg) => {
         let date = new Date(dateArg.slice(0, 19));
@@ -42,17 +34,63 @@ const Calendar = () => {
     };
 
     return (
-        <div>
-            <h1 className="text-center p-5">Próximamente...</h1>
-            {/* <Carousel>
-                {jsonFixture.response.map((fixture, key) => {
-                    return (
-                        <Carousel.Item variant="dark" key={key}>
-                            <div>{dateArg(fixture.fixture.date)}</div>
-                        </Carousel.Item>
-                    );
-                })}
-            </Carousel> */}
+        <div className="calendar-container">
+            {error.request ? (
+                <h2>{error.request}</h2>
+            ) : error.rateLimit ? (
+                <h2>{error.rateLimit}</h2>
+            ) : error.error ? (
+                <h2>{error.error}</h2>
+            ) : calendar ? (
+                <Carousel variant="dark" interval={null} indicators={false} className="text-center p-5">
+                    {calendar.map((day, keyd) => {
+                        return (
+                            <Carousel.Item key={keyd}>
+                                <h1>
+                                    Partidos del día{" "}
+                                    {dateArg(day[0].fixture.date).slice(0, 5) === "1/12/" ||
+                                    dateArg(day[0].fixture.date).slice(0, 5) === "2/12/"
+                                        ? "0" + dateArg(day[0].fixture.date).slice(0, 4).replace("/", "-")
+                                        : dateArg(day[0].fixture.date).slice(0, 5).replace("/", "-")}
+                                </h1>
+                                {day.map((fixture, keyf) => {
+                                    return (
+                                        <div key={keyf} className="mb-4">
+                                            <h5>{dateArg(fixture.fixture.date).slice(11)}</h5>
+                                            <div className="fixture">
+                                                <img
+                                                    className="team-logo-fixture"
+                                                    src={fixture.teams.home.logo}
+                                                    alt="home-team-logo"
+                                                />
+                                                <h6 className="teams-names">
+                                                    {teamNames.hasOwnProperty(fixture.teams.home.name)
+                                                        ? teamNames[fixture.teams.home.name]
+                                                        : fixture.teams.home.name}{" "}
+                                                    vs{" "}
+                                                    {teamNames.hasOwnProperty(fixture.teams.away.name)
+                                                        ? teamNames[fixture.teams.away.name]
+                                                        : fixture.teams.away.name}
+                                                </h6>
+                                                <img
+                                                    className="team-logo-fixture"
+                                                    src={fixture.teams.away.logo}
+                                                    alt="away-team-logo"
+                                                />
+                                            </div>
+                                            <p>
+                                                {fixture.fixture.venue.name}, {fixture.fixture.venue.city}
+                                            </p>
+                                        </div>
+                                    );
+                                })}
+                            </Carousel.Item>
+                        );
+                    })}
+                </Carousel>
+            ) : (
+                <h1>Cargando ...</h1>
+            )}
         </div>
     );
 };
