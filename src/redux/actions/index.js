@@ -3,10 +3,12 @@ import jsonStandings from "../../json/forTest/Standings.json";
 import jsonSquads from "../../json/forTest/Squads.json";
 import jsonCoach from "../../json/forTest/Coach.json";
 import jsonPlayer from "../../json/forTest/Player.json";
+import jsonFixture from "../../json/forTest/Fixture.json";
 export const GET_STANDINGS = "GET_STANDINGS";
 export const GET_TEAM = "GET_TEAM";
 export const GET_COACH = "GET_COACH";
 export const GET_PLAYER = "GET_PLAYER";
+export const GET_FIXTURES = "GET_FIXTURES";
 
 export const getStandings = () => {
     return async (dispatch) => {
@@ -108,6 +110,30 @@ export const getPlayer = (playerId) => {
                     playerId: "154",
                 });
             }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
+
+export const getFixtures = () => {
+    return async (dispatch) => {
+        try {
+            // const res = await axios.get("https://v3.football.api-sports.io/fixtures?league=1&season=2022", {
+            //     headers: {
+            //         "x-apisports-key": process.env.REACT_APP_API_KEY_V1,
+            //     },
+            // });
+
+            // dispatch({
+            //     type: GET_FIXTURES,
+            //     payload: res.data,
+            // });
+
+            dispatch({
+                type: GET_FIXTURES,
+                payload: jsonFixture,
+            });
         } catch (error) {
             console.log(error);
         }

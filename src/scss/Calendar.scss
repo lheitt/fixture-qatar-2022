@@ -1,0 +1,22 @@
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em;
+}
+
+.fixture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.teams-names {
+    margin-bottom: 0;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+.team-logo-fixture {
+    width: 2em;
+}

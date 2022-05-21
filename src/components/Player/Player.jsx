@@ -15,6 +15,15 @@ const Player = () => {
 
     useEffect(() => {
         if (!player) dispatch(getPlayer(playerId));
+        player &&
+            !player.noInfo &&
+            (document.title =
+                player.player.name +
+                " - " +
+                (teamNames.hasOwnProperty(player.statistics[0].team.name)
+                    ? teamNames[player.statistics[0].team.name]
+                    : player.statistics[0].team.name) +
+                " | Qatar 2022");
     }, [dispatch, playerId, player]);
 
     return (
@@ -66,7 +75,9 @@ const Player = () => {
                         <h4>
                             Promedio de Gol:{" "}
                             {player.statistics[0].games.appearences && player.statistics[0].goals.total
-                                ? (player.statistics[0].goals.total / player.statistics[0].games.appearences).toPrecision(3)
+                                ? (
+                                      player.statistics[0].goals.total / player.statistics[0].games.appearences
+                                  ).toPrecision(2)
                                 : 0}
                         </h4>
                         <h4>Pases: {player.statistics[0].passes.total || 0}</h4>
