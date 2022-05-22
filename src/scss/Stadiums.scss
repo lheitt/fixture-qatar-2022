@@ -1,0 +1,27 @@
+.stadiums-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em;
+}
+
+.stadiums {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3em;
+    justify-content: center;
+}
+
+.stadium-img {
+    width: 28em;
+    height: 15em;
+    object-fit: cover;
+}
+
+.stadium-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1em;
+}

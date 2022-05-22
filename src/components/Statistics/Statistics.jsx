@@ -1,3 +1,5 @@
+import "../../scss/Statistics.scss";
+
 const Statistics = () => {
     document.title = "Estadísticas | Qatar 2022";
     return (

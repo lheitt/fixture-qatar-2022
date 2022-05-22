@@ -1,9 +1,9 @@
 import axios from "axios";
-import jsonStandings from "../../json/forTest/Standings.json";
-import jsonSquads from "../../json/forTest/Squads.json";
-import jsonCoach from "../../json/forTest/Coach.json";
-import jsonPlayer from "../../json/forTest/Player.json";
-import jsonFixture from "../../json/forTest/Fixture.json";
+import jsonStandings from "../../assets/json/forTest/Standings.json";
+import jsonSquads from "../../assets/json/forTest/Squads.json";
+import jsonCoach from "../../assets/json/forTest/Coach.json";
+import jsonPlayer from "../../assets/json/forTest/Player.json";
+import jsonFixture from "../../assets/json/forTest/Fixture.json";
 export const GET_STANDINGS = "GET_STANDINGS";
 export const GET_TEAM = "GET_TEAM";
 export const GET_COACH = "GET_COACH";
