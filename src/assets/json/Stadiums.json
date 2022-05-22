@@ -1,0 +1,52 @@
+{
+    "response": [
+        {
+            "name": "Estadio Al Thumama",
+            "city": "Doha",
+            "capacity": 69000,
+            "image": "Thumama.jpg"
+        },
+        {
+            "name": "Estadio Internacional Khalifa",
+            "city": "Doha",
+            "capacity": 50000,
+            "image": "Khalifa.jpg"
+        },
+        {
+            "name": "Estadio Al Bayt",
+            "city": "Jor",
+            "capacity": 60000,
+            "image": "Bayt.jpg"
+        },
+        {
+            "name": "Estadio Icónico de Lusail",
+            "city": "Lusail",
+            "capacity": 94500,
+            "image": "Lusail.jpg"
+        },
+        {
+            "name": "Estadio Ciudad de la Educación",
+            "city": "Rayán",
+            "capacity": 45350,
+            "image": "Education.jpg"
+        },
+        {
+            "name": "Estadio 974",
+            "city": "Doha",
+            "capacity": 40000,
+            "image": "974.jpg"
+        },
+        {
+            "name": "Estadio Ahmed bin Ali",
+            "city": "Rayán",
+            "capacity": 44740,
+            "image": "Ali.jpg"
+        },
+        {
+            "name": "Estadio Al Janoub",
+            "city": "Al Wakrah",
+            "capacity": 40000,
+            "image": "Janoub.jpg"
+        }
+    ]
+}

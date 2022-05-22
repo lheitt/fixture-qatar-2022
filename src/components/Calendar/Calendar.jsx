@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFixtures } from "../../redux/actions";
 import { useEffect } from "react";
 import { Carousel } from "react-bootstrap";
-import teamNames from "../../json/TeamNames.json";
+import teamNames from "../../assets/json/TeamNames.json";
 
 const Calendar = () => {
     document.title = "Calendario | Qatar 2022";

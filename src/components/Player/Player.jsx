@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPlayer } from "../../redux/actions";
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import teamNames from "../../json/TeamNames.json";
-import playerPosition from "../../json/PlayerPosition.json";
-import competitionName from "../../json/CompetitionNames.json";
+import teamNames from "../../assets/json/TeamNames.json";
+import playerPosition from "../../assets/json/PlayerPosition.json";
+import competitionName from "../../assets/json/CompetitionNames.json";
 
 const Player = () => {
     const { playerId } = useParams();

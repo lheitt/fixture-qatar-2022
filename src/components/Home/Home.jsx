@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getStandings } from "../../redux/actions";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import teamNames from "../../json/TeamNames.json";
+import teamNames from "../../assets/json/TeamNames.json";
 
 const Home = () => {
     document.title = "Inicio | Qatar 2022";

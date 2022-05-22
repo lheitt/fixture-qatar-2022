@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCoach, getTeam } from "../../redux/actions";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import teamNames from "../../json/TeamNames.json";
-import playerPosition from "../../json/PlayerPosition.json";
+import teamNames from "../../assets/json/TeamNames.json";
+import playerPosition from "../../assets/json/PlayerPosition.json";
 
 const Team = () => {
     const { teamId } = useParams();
